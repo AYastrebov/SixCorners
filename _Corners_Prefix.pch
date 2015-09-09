@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the '6Corners' target in the '6Corners' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+	#import <UIKit/UIKit.h>
+#endif

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="hexagonal" width="11" height="20" tilewidth="28" tileheight="24">
+ <tileset name="fon2" firstgid="1" tilewidth="28" tileheight="24">
+  <image source="hexmapbg_2.png"/>
+ </tileset>
+ <layer name="Layer 0" width="11" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNkYGBgHADMMED2juJRTAvMQCQNABeXXIlwAwAA
+  </data>
+ </layer>
+    <objectgroup name="ObjectGroup" width="0" height="0">
+        <object name="Figure" x="98" y="12" width="28" height="24"/>
+    </objectgroup>
+</map>

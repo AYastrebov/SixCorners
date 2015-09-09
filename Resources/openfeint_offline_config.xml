@@ -1,0 +1,458 @@
+<resources>
+<game_profile_page_info>
+  <has_achievements>true</has_achievements>
+  <has_leaderboards>true</has_leaderboards>
+  <has_featured_application>true</has_featured_application>
+  <has_ipurchase>false</has_ipurchase>
+  <is_owned_by_local_player>true</is_owned_by_local_player>
+  <has_chat_rooms>true</has_chat_rooms>
+  <short_name>Six Corners</short_name>
+  <name>Six Corners</name>
+  <has_challenges>false</has_challenges>
+  <id>246123</id>
+  <timestamp>2011-03-08 14:53:32</timestamp>
+  <suggestions_topic_id>665813</suggestions_topic_id>
+</game_profile_page_info>
+<offline>
+<timestamp>2011-03-08 14:53:32</timestamp>
+<achievements>
+<achievement>
+<id>855552</id>
+<title>First launch</title>
+<description>Thank you for purchasing &quot;Six Corners&quot;</description>
+<gamerscore>50</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>1</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+<achievement>
+<id>855562</id>
+<title>Level 1 complete</title>
+<description>Complete first level</description>
+<gamerscore>30</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>2</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+<achievement>
+<id>855572</id>
+<title>Level 2 complete</title>
+<description>Complete second level</description>
+<gamerscore>35</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>3</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+<achievement>
+<id>855582</id>
+<title>Level 3 complete</title>
+<description>Complete third level</description>
+<gamerscore>40</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>4</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+<achievement>
+<id>855592</id>
+<title>Level 4 complete</title>
+<description>Complete fourth level</description>
+<gamerscore>45</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>5</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+<achievement>
+<id>855602</id>
+<title>Level 5 complete</title>
+<description>Complete fifth level</description>
+<gamerscore>50</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>6</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+<achievement>
+<id>855612</id>
+<title>Level 6 complete</title>
+<description>Complete sixth level</description>
+<gamerscore>60</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>7</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+<achievement>
+<id>855622</id>
+<title>Level 7 complete</title>
+<description>Complete seventh level</description>
+<gamerscore>70</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>8</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+<achievement>
+<id>855632</id>
+<title>Level 8 complete</title>
+<description>Complete eighth level</description>
+<gamerscore>80</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>9</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+<achievement>
+<id>855642</id>
+<title>Level 9 complete</title>
+<description>Complete ninth level</description>
+<gamerscore>90</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>10</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+<achievement>
+<id>855652</id>
+<title>Level 10 complete</title>
+<description>Complete tenth level</description>
+<gamerscore>100</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>11</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+<achievement>
+<id>855662</id>
+<title>More lines</title>
+<description>Destroy more than twenty-five lines on endless mode</description>
+<gamerscore>75</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>12</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+<achievement>
+<id>855672</id>
+<title>Doodle style</title>
+<description>Purchase doodle skin</description>
+<gamerscore>25</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>13</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+<achievement>
+<id>855682</id>
+<title>8-bit style</title>
+<description>Purchase 8-bit skin</description>
+<gamerscore>25</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>14</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+<achievement>
+<id>855692</id>
+<title>glass style</title>
+<description>Purchase glass skin</description>
+<gamerscore>25</gamerscore>
+<icon_url></icon_url>
+<is_secret>false</is_secret>
+<is_unlocked>false</is_unlocked>
+<percent_complete></percent_complete>
+<unlocked_date></unlocked_date>
+<position>15</position>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</achievement>
+</achievements>
+<leaderboards>
+<leaderboard>
+<id>664856</id>
+<name>Level 1 score</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>246123</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2011-03-05 23:13:37 UTC</created_at>
+<updated_at>2011-03-05 23:13:37 UTC</updated_at>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</leaderboard>
+<leaderboard>
+<id>664866</id>
+<name>level 2 score</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>246123</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2011-03-05 23:14:10 UTC</created_at>
+<updated_at>2011-03-05 23:14:10 UTC</updated_at>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</leaderboard>
+<leaderboard>
+<id>664886</id>
+<name>level 3 score</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>246123</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2011-03-05 23:14:28 UTC</created_at>
+<updated_at>2011-03-05 23:14:28 UTC</updated_at>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</leaderboard>
+<leaderboard>
+<id>664896</id>
+<name>level 4 score</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>246123</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2011-03-05 23:14:46 UTC</created_at>
+<updated_at>2011-03-05 23:14:46 UTC</updated_at>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</leaderboard>
+<leaderboard>
+<id>664906</id>
+<name>level 5 score</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>246123</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2011-03-05 23:15:04 UTC</created_at>
+<updated_at>2011-03-05 23:15:04 UTC</updated_at>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</leaderboard>
+<leaderboard>
+<id>664916</id>
+<name>level 6 score</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>246123</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2011-03-05 23:15:24 UTC</created_at>
+<updated_at>2011-03-05 23:15:24 UTC</updated_at>
+<start_version>0000.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</leaderboard>
+<leaderboard>
+<id>664926</id>
+<name>level 7 score</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>246123</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2011-03-05 23:15:45 UTC</created_at>
+<updated_at>2011-03-05 23:15:45 UTC</updated_at>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</leaderboard>
+<leaderboard>
+<id>664936</id>
+<name>level 8 score</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>246123</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2011-03-05 23:16:00 UTC</created_at>
+<updated_at>2011-03-05 23:16:00 UTC</updated_at>
+<start_version>0000.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</leaderboard>
+<leaderboard>
+<id>664946</id>
+<name>Level 9 score</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>246123</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2011-03-05 23:16:19 UTC</created_at>
+<updated_at>2011-03-05 23:16:19 UTC</updated_at>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</leaderboard>
+<leaderboard>
+<id>664956</id>
+<name>level 10 score</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>246123</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2011-03-05 23:16:34 UTC</created_at>
+<updated_at>2011-03-05 23:16:34 UTC</updated_at>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</leaderboard>
+<leaderboard>
+<id>664966</id>
+<name>Endless level score</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>246123</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2011-03-05 23:16:54 UTC</created_at>
+<updated_at>2011-03-05 23:16:54 UTC</updated_at>
+<start_version>0001.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2011-03-08 14:53:32</timestamp>
+</leaderboard>
+</leaderboards>
+</offline>
+
+</resources>

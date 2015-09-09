@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta content='text/html; charset=utf-8' http-equiv='content-type'>
+    <meta content='initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport'>
+    <script type="text/javascript">
+      (function() {
+        var scripts = ['jquery', 'template', 'webui'];
+        
+        var i;
+        var cacheBuster = new Date().getTime();
+
+        for (i = 0; i < scripts.length; i++) {
+          document.write('<script type="text/javascript" src="javascripts/'+ scripts[i] +'.js?'+ cacheBuster +'"></scr'+'ipt>');
+        }
+        
+      })();
+    </script>
+    <script type="text/javascript">
+      $.loadCss('webui');
+    </script>
+  </head>
+  <body>
+    <div id='page'></div>
+  </body>
+</html>

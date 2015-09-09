@@ -1,0 +1,1003 @@
+/* --- game_channel/index --- */
+@font-face {
+  font-family: PTSans;
+  src: local("☺"), url("images/game_channel/PTSans.svg#webfontmBFaK3EM") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: PTSansBold;
+  src: local("☺"), url("images/game_channel/PTSansBold.svg#webfontpfl2y6jq") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: PTSansItalic;
+  src: local("☺"), url("images/game_channel/PTSansItalic.svg#webfontYVflOw0s") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: PTSansBoldItalic;
+  src: local("☺"), url("images/game_channel/PTSansBoldItalic.svg#webfont2OZu98Lg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: PTSansNarrow;
+  src: local("☺"), url("images/game_channel/PTSansNarrow.svg#webfontzjaCm4lR") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: PTSansNarrowBold;
+  src: local("☺"), url("images/game_channel/PTSansNarrowBold.svg#webfontSAYAwFVt") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+.manifest_dependency_hints {
+  background-image: url(images/game_channel/logo.mdpi.png);
+  background-image: url(images/game_channel/placeholder.firesale.png);
+  background-image: url(images/game_channel/placeholder.cc.png); }
+
+.foo {
+  display: none; }
+
+body {
+  font-size: 12px;
+  font-family: helvetica;
+  background: transparent; }
+
+body.ios .spinner {
+  background: white url(images/game_channel/spinner.ios.mdpi.gif) center center no-repeat;
+  width: 25px;
+  height: 25px;
+  -webkit-background-size: 16px 16px !important;
+  -webkit-animation-name: none;
+  -webkit-border-radius: 3px; }
+
+#spotlight {
+  color: #666666;
+  margin: 0 10px; }
+  #spotlight section, #spotlight .section {
+    -webkit-border-radius: 4px;
+    margin: 12px 0;
+    -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6); }
+    #spotlight section.header_section, #spotlight .section.header_section {
+      -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4); }
+    #spotlight section h3.section_title, #spotlight .section h3.section_title {
+      font-family: PTSansBold, helvetica;
+      white-space: nowrap;
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #b9c6c9), color-stop(1, #9ca8ab));
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: clip;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      text-shadow: rgba(0, 0, 0, 0.4) 0px -1px 1px;
+      border-bottom: 1px solid #999999; }
+    #spotlight section .cell, #spotlight .section .cell {
+      height: auto;
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #eff6f8), color-stop(1, #e0e9eb));
+      border: 0;
+      border-top: 1px solid white;
+      border-bottom: 1px solid silver; }
+      #spotlight section .cell.touched, #spotlight .section .cell.touched {
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #cfd6d8), color-stop(1, #c0c9cb)); }
+      #spotlight section .cell:first-child, #spotlight .section .cell:first-child {
+        -webkit-border-top-left-radius: 4px;
+        -webkit-border-top-right-radius: 4px; }
+      #spotlight section .cell:last-child, #spotlight .section .cell:last-child {
+        -webkit-border-bottom-left-radius: 4px;
+        -webkit-border-bottom-right-radius: 4px;
+        border-bottom: 0; }
+  #spotlight .button {
+    -webkit-border-radius: 10px;
+    -webkit-border-image: none;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #bbbbbb), color-stop(1, #999999));
+    -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.6);
+    color: white;
+    font-weight: bold;
+    text-shadow: rgba(0, 0, 0, 0.65) 0px -1px 1px; }
+    #spotlight .button.touched {
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #999999), color-stop(1, #aaaaaa)); }
+  #spotlight #index {
+    color: white;
+    font-family: helvetica; }
+    #spotlight #index section .cell, #spotlight #index .section .cell {
+      padding: 0;
+      border: 0; }
+    #spotlight #index section .cell.loading, #spotlight #index .section .cell.loading {
+      background: #666666; }
+    #spotlight #index section #about_game_channel, #spotlight #index .section #about_game_channel {
+      color: white;
+      background: darkgreen url(images/game_channel/welcome.mdpi.png) center no-repeat;
+      -webkit-background-size: 303px 39px;
+      text-shadow: rgba(0, 0, 0, 0.4) 0px 0px 6px;
+      font-weight: normal;
+      font-size: 16px;
+      font-family: PTSansBold, helvetica;
+      padding-left: 36px;
+      height: 35px;
+      line-height: 35px;
+      padding-top: 4px; }
+      #spotlight #index section #about_game_channel.touched, #spotlight #index .section #about_game_channel.touched {
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0.4)), color-stop(1, rgba(0, 0, 0, 0.4))), url(images/game_channel/welcome.mdpi.png); }
+    #spotlight #index section .link_cell, #spotlight #index .section .link_cell {
+      color: #21373d;
+      font-size: 13px;
+      padding: 0 10px; }
+      #spotlight #index section .link_cell p, #spotlight #index .section .link_cell p {
+        padding-right: 20px;
+        background: url(images/game_channel/disclosure.mdpi.png) center right no-repeat;
+        -webkit-background-size: 9px 13px;
+        font-family: PTSansBold, helvetica;
+        font-weight: normal;
+        padding: 0;
+        margin: 0;
+        line-height: 35px;
+        height: 35px;
+        padding-top: 4px;
+        color: inherit; }
+    #spotlight #index section#fgotd .overlay, #spotlight #index .section#fgotd .overlay {
+      background-image: url(images/game_channel/star.mdpi.png); }
+    #spotlight #index section#gold .overlay, #spotlight #index .section#gold .overlay {
+      background-image: url(images/game_channel/gold.mdpi.png); }
+    #spotlight #index section#fire_sale .overlay, #spotlight #index .section#fire_sale .overlay {
+      background-image: url(images/game_channel/fire.mdpi.png); }
+    #spotlight #index section#channel_challenge .overlay, #spotlight #index .section#channel_challenge .overlay {
+      background-image: url(images/game_channel/vs.mdpi.png); }
+    #spotlight #index section .loading, #spotlight #index .section .loading {
+      height: 117px;
+      display: -webkit-box;
+      -webkit-box-pack: center;
+      -webkit-box-align: center; }
+    #spotlight #index section .feature_cell, #spotlight #index .section .feature_cell {
+      -webkit-background-size: 100% auto;
+      background: #666666 center center; }
+      #spotlight #index section .feature_cell .inner, #spotlight #index .section .feature_cell .inner {
+        padding-top: 76px;
+        background-color: transparent;
+        -webkit-border-radius: 4px; }
+      #spotlight #index section .feature_cell.touched .inner, #spotlight #index .section .feature_cell.touched .inner {
+        background-color: rgba(0, 0, 0, 0.5); }
+      #spotlight #index section .feature_cell:last-child .overlay, #spotlight #index .section .feature_cell:last-child .overlay {
+        -webkit-border-bottom-left-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px; }
+      #spotlight #index section .feature_cell .overlay, #spotlight #index .section .feature_cell .overlay {
+        padding: 5px 5px 5px 34px;
+        -webkit-background-size: 30px 30px;
+        background-color: rgba(0, 0, 0, 0.5);
+        background-position: 2px 5px;
+        background-repeat: no-repeat; }
+        #spotlight #index section .feature_cell .overlay #time_left, #spotlight #index .section .feature_cell .overlay #time_left {
+          float: right;
+          width: 82px;
+          height: 32px;
+          -webkit-box-sizing: border-box;
+          border: 1px solid #24768d;
+          background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #3ab9c4), color-stop(1, #1c8fb0));
+          -webkit-border-radius: 5px;
+          -webkit-box-shadow: inset 0px 1px 2px rgba(255, 255, 255, 0.5);
+          padding: 2px 4px;
+          color: #004a5f;
+          text-shadow: #83d7e3 0px 1px 1px;
+          font-family: helvetica;
+          font-weight: bold;
+          font-size: 10px; }
+          #spotlight #index section .feature_cell .overlay #time_left .clock, #spotlight #index .section .feature_cell .overlay #time_left .clock {
+            color: white;
+            text-shadow: #282828 0px -1px 1px rgba(100, 100, 100, 0.65);
+            line-height: 15px;
+            font-family: PTSansNarrowBold, helvetica;
+            font-size: 15px;
+            font-weight: normal; }
+        #spotlight #index section .feature_cell .overlay h2.game_title, #spotlight #index section .feature_cell .overlay h3.section_title, #spotlight #index .section .feature_cell .overlay h2.game_title, #spotlight #index .section .feature_cell .overlay h3.section_title {
+          font-family: PTSansBold, helvetica;
+          font-weight: normal;
+          background-image: none;
+          margin: 0;
+          padding: 0;
+          border: 0; }
+        #spotlight #index section .feature_cell .overlay h3.section_title, #spotlight #index .section .feature_cell .overlay h3.section_title {
+          height: auto;
+          line-height: 13px;
+          margin-top: 2px;
+          -webkit-border-radius: 0px;
+          font-family: PTSansNarrowBold, helvetica;
+          font-wieght: normal;
+          font-size: 13px; }
+        #spotlight #index section .feature_cell .overlay h2.game_title, #spotlight #index .section .feature_cell .overlay h2.game_title {
+          line-height: 18px;
+          max-height: 36px;
+          overflow: hidden;
+          font-weight: bold;
+          font-size: 18px; }
+  #spotlight #games section .game_cell, #spotlight #games .section .game_cell {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal; }
+    #spotlight #games section .game_cell .image, #spotlight #games .section .game_cell .image {
+      border: 1px solid #aaaaaa;
+      background: white;
+      -webkit-border-radius: 8px;
+      -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+      width: 112px;
+      height: 64px;
+      -webkit-background-size: 112px 64px; }
+      #spotlight #games section .game_cell .image.icon_image, #spotlight #games .section .game_cell .image.icon_image {
+        width: 54px;
+        height: 54px;
+        padding: 0;
+        margin: 0px;
+        -webkit-background-size: 54px 54px; }
+    #spotlight #games section .game_cell .cell_content, #spotlight #games .section .game_cell .cell_content {
+      padding-right: 20px;
+      background: url(images/game_channel/disclosure.mdpi.png) center right no-repeat;
+      -webkit-background-size: 9px 13px;
+      -webkit-box-flex: 1;
+      margin-left: 10px; }
+      #spotlight #games section .game_cell .cell_content .title, #spotlight #games .section .game_cell .cell_content .title {
+        color: #21373c;
+        font-family: PTSansBold, helvetica;
+        font-weight: normal;
+        padding: 3px 0 0 0;
+        margin: 0; }
+      #spotlight #games section .game_cell .cell_content .description, #spotlight #games .section .game_cell .cell_content .description {
+        margin: 0;
+        padding: 0;
+        min-height: 32px; }
+      #spotlight #games section .game_cell .cell_content .price, #spotlight #games .section .game_cell .cell_content .price {
+        height: 13px;
+        border: 1px solid silver;
+        padding: 1px 4px;
+        margin: 4px 2px;
+        -webkit-border-radius: 3px;
+        font-size: 10px;
+        font-weight: bold;
+        line-height: 13px;
+        display: inline-block;
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #dfdfdf), color-stop(1, #efefef)); }
+        #spotlight #games section .game_cell .cell_content .price.free, #spotlight #games .section .game_cell .cell_content .price.free {
+          text-transform: uppercase;
+          color: #0d656e;
+          font-style: italic;
+          font-size: 9.5px;
+          line-height: 13px;
+          text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 1px; }
+  #spotlight section .cell.coming_soon, #spotlight .section .cell.coming_soon {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 12px 0 38px;
+    border: 0;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    background-position: 6px center, 0 0;
+    background-repeat: no-repeat, repeat;
+    -webkit-background-size: 30px 30px, 100% 100%; }
+  #spotlight section span, #spotlight .section span {
+    font-family: PTSansBoldItalic, helvetica;
+    float: right;
+    font-size: 15px;
+    text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 1px; }
+  #spotlight #fire_sale {
+    font-family: PTSansBold;
+    font-weight: normal; }
+    #spotlight #fire_sale section .cell.coming_soon, #spotlight #fire_sale .section .cell.coming_soon {
+      background-image: url(images/game_channel/fire.white.mdpi.png), -webkit-gradient(linear, left top, left bottom, color-stop(0, #fa9b33), color-stop(1, #f96923));
+      text-shadow: #934720 0px 1px 1px; }
+      #spotlight #fire_sale section .cell.coming_soon span, #spotlight #fire_sale .section .cell.coming_soon span {
+        color: #a93700; }
+  #spotlight #channel_challenge {
+    font-family: PTSansBold;
+    font-weight: normal; }
+    #spotlight #channel_challenge section .cell.coming_soon, #spotlight #channel_challenge .section .cell.coming_soon {
+      background-image: url(images/game_channel/vs.white.mdpi.png), -webkit-gradient(linear, left top, left bottom, color-stop(0, #90ce38), color-stop(1, #79b821));
+      text-shadow: #828282 0px 1px 1px; }
+      #spotlight #channel_challenge section .cell.coming_soon span, #spotlight #channel_challenge .section .cell.coming_soon span {
+        color: #3c6600; }
+
+/* --- game_channel/fire_sale, game_channel/channel_challenge --- */
+#spotlight section.step_list .cell, #spotlight .section.step_list .cell {
+  height: 54px;
+  -webkit-box-sizing: border-box;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: center; }
+  #spotlight section.step_list .cell .icon, #spotlight .section.step_list .cell .icon {
+    width: 34px;
+    height: 34px;
+    float: none;
+    -webkit-background-size: 26px 26px;
+    background-position: center center;
+    background-repeat: no-repeat; }
+  #spotlight section.step_list .cell:nth-child(2) .icon, #spotlight .section.step_list .cell:nth-child(2) .icon {
+    background-image: url(images/game_channel/step.1.mdpi.png); }
+  #spotlight section.step_list .cell:nth-child(3) .icon, #spotlight .section.step_list .cell:nth-child(3) .icon {
+    background-image: url(images/game_channel/step.2.mdpi.png); }
+  #spotlight section.step_list .cell:nth-child(4) .icon, #spotlight .section.step_list .cell:nth-child(4) .icon {
+    background-image: url(images/game_channel/step.3.mdpi.png); }
+  #spotlight section.step_list .cell:nth-child(5) .icon, #spotlight .section.step_list .cell:nth-child(5) .icon {
+    background-image: url(images/game_channel/step.4.mdpi.png); }
+  #spotlight section.step_list .cell .cell_content, #spotlight .section.step_list .cell .cell_content {
+    -webkit-box-flex: 1;
+    color: #21373d;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px; }
+
+/* --- game_channel/about --- */
+#about_game_channel h1 {
+  font-family: PTSansBold, helvetica;
+  color: #21373d;
+  font-size: 17px;
+  line-height: 18px;
+  margin: 0;
+  padding: 0; }
+#about_game_channel p {
+  color: #595959;
+  font-size: 13px;
+  line-height: 15px;
+  font-weight: normal; }
+  #about_game_channel p:last-child {
+    margin-bottom: 1px; }
+#about_game_channel ul {
+  background: white;
+  border: 1px solid #bfcacd;
+  -webkit-border-radius: 3px;
+  list-style-type: none;
+  padding: 0;
+  margin: 15px 0; }
+  #about_game_channel ul li {
+    border-bottom: 1px solid #bfcacd;
+    padding: 10px 10px 10px 50px;
+    margin: 0;
+    -webkit-background-size: 30px 30px;
+    background-position: 12px center;
+    background-repeat: no-repeat; }
+    #about_game_channel ul li:last-child {
+      border: 0; }
+    #about_game_channel ul li.fgotd {
+      background-image: url(images/game_channel/star.mdpi.png); }
+    #about_game_channel ul li.fire_sale {
+      background-image: url(images/game_channel/fire.mdpi.png); }
+    #about_game_channel ul li.channel_challenge {
+      background-image: url(images/game_channel/vs.mdpi.png); }
+    #about_game_channel ul li h2 {
+      font-family: PTSansBold, helvetica;
+      font-weight: normal;
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+      color: #21373d; }
+      #about_game_channel ul li h2 span {
+        font-size: 13px;
+        font-style: normal;
+        float: none !important; }
+    #about_game_channel ul li p {
+      margin: 0;
+      padding: 0;
+      font-size: 12px; }
+
+/* --- game_channel/enable_feint --- */
+#enable_feint, #offline {
+  background: #254856 url(images/game_channel/enable_bg.mdpi.png) center center;
+  -webkit-background-size: 320px 415px;
+  text-align: center;
+  padding: 20px;
+  margin: 0 -10px;
+  min-height: 356px;
+  font-family: PTSansBold, helvetica;
+  font-weight: normal !important; }
+  #enable_feint h1, #offline h1 {
+    color: white;
+    font-size: 25px;
+    line-height: 28px; }
+  #enable_feint p, #offline p {
+    font-size: 16px;
+    line-height: 19px;
+    color: white; }
+  #enable_feint ul, #offline ul {
+    -webkit-box-sizing: border-box;
+    width: 283px;
+    height: 160px;
+    margin: 0 auto;
+    padding: 1px;
+    background: url(images/game_channel/enable.table.mdpi.png) no-repeat;
+    -webkit-background-size: 283px 160px;
+    list-style-type: none;
+    text-align: left; }
+    #enable_feint ul li, #offline ul li {
+      margin: 10px;
+      height: 35px;
+      line-height: 35px;
+      padding-top: 4px;
+      color: #234351;
+      font-size: 17px;
+      font-weight: bold;
+      padding-left: 42px;
+      -webkit-background-size: 30px 30px;
+      background-position: 6px center;
+      background-repeat: no-repeat; }
+      #enable_feint ul li.fgotd, #offline ul li.fgotd {
+        background-image: url(images/game_channel/star.mdpi.png); }
+      #enable_feint ul li.fire_sale, #offline ul li.fire_sale {
+        background-image: url(images/game_channel/fire.mdpi.png); }
+      #enable_feint ul li.channel_challenge, #offline ul li.channel_challenge {
+        background-image: url(images/game_channel/vs.mdpi.png); }
+  #enable_feint .sad, #offline .sad {
+    height: 179px;
+    -webkit-background-size: 104px 179px;
+    background: url(images/game_channel/iphone.sad.mdpi.png) center center no-repeat; }
+  #enable_feint .button, #offline .button {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2f9f57), color-stop(1, #06653c));
+    -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 2px;
+    font-size: 21px;
+    padding: 0;
+    line-height: 37px;
+    padding-top: 5px;
+    -webkit-border-radius: 5px; }
+    #enable_feint .button.touched, #offline .button.touched {
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #06653c), color-stop(1, #2f9f57)); }
+  #enable_feint .tos, #offline .tos {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #254d5b), color-stop(1, #1e3b43));
+    -webkit-box-sizing: border-box;
+    font-family: helvetica;
+    text-align: left;
+    margin: 0 -20px;
+    padding: 8px 12px;
+    -webkit-box-shadow: black 0px 0px 15px;
+    height: 52px;
+    position: absolute;
+    top: 388px; }
+    #enable_feint .tos.touched, #offline .tos.touched {
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #153d4b), color-stop(1, #0e2b33)); }
+    #enable_feint .tos p, #offline .tos p {
+      color: #99bfc2;
+      font-weight: normal;
+      font-size: 11px;
+      line-height: 16px;
+      padding: 0;
+      padding-right: 20px;
+      background: url(images/game_channel/disclosure.mdpi.png) center right no-repeat;
+      -webkit-background-size: 9px 13px;
+      margin: 0;
+      margin-right: 20px; }
+
+#offline h1 {
+  margin: 1px 0 12px; }
+#offline p {
+  margin: 8px 0; }
+#offline .button {
+  margin: 19px 0; }
+
+/* --- game_channel/tos -- */
+#terms_of_service {
+  padding: 10px; }
+  #terms_of_service h1, #terms_of_service strong {
+    color: #06727c; }
+
+/* --- game_channel/game --- */
+#game .cell p {
+  color: #595959;
+  font-size: 12px;
+  font-weight: normal; }
+#game .cell.link_cell p {
+  font-family: PTSansBold, helvetica;
+  font-weight: normal;
+  font-size: 14px;
+  padding-right: 20px;
+  background: url(images/game_channel/disclosure.mdpi.png) center right no-repeat;
+  -webkit-background-size: 9px 13px; }
+#game #comments #take_action_to_post {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px; }
+  #game #comments #take_action_to_post .button {
+    margin: 0; }
+#game #comments #add_comment {
+  margin: 0; }
+#game #comments form#comment_form textarea {
+  display: block;
+  width: 100%;
+  height: 60px;
+  border: 1px solid #aaaaaa;
+  -webkit-border-radius: 6px;
+  -webkit-box-shadow: inset rgba(0, 0, 0, 0.4) 0 1px 3px;
+  -webkit-box-sizing: border-box; }
+#game #comments .comment_cell {
+  height: auto; }
+  #game #comments .comment_cell.last {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom: 0; }
+  #game #comments .comment_cell .image {
+    border: 1px solid #aaaaaa;
+    background: white;
+    -webkit-border-radius: 8px;
+    -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+    *display: inline-block;
+    width: 48px;
+    height: 48px;
+    background-image: url(images/icon.user.male.mdpi.png);
+    -webkit-background-size: 48px 48px;
+    margin: 0 10px 12px 0px;
+    float: left; }
+    #game #comments .comment_cell .image:after {
+      content: " ";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+  #game #comments .comment_cell .cell_content {
+    padding-right: 20px;
+    background: url(images/game_channel/disclosure.mdpi.png) center right no-repeat;
+    -webkit-background-size: 9px 13px;
+    min-height: 50px; }
+    #game #comments .comment_cell .cell_content .username {
+      font-family: PTSansBold, helvetica;
+      font-size: 14px;
+      font-weight: normal;
+      color: #21373d; }
+    #game #comments .comment_cell .cell_content .comment_body {
+      margin: 0 0 4px 60px; }
+      #game #comments .comment_cell .cell_content .comment_body .inner {
+        overflow: hidden; }
+    #game #comments .comment_cell .cell_content .date {
+      margin-left: 60px;
+      color: #aaaaaa;
+      font-size: 11px; }
+#game #comments #load_more {
+  text-align: center;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom: 0; }
+  #game #comments #load_more p {
+    font-family: PTSansBold, helvetica;
+    font-weight: normal;
+    font-size: 14px; }
+#game #text_description {
+  padding: 10px; }
+  #game #text_description p {
+    margin: 0; }
+#game #screenshots .icon {
+  background: url("images/game_channel/screenshot.mdpi.png") top left no-repeat;
+  -webkit-background-size: 44px 35px;
+  margin: 0;
+  width: 44px;
+  height: 35px; }
+#game #screenshots p {
+  margin-left: 50px;
+  color: #21373d; }
+#game #video {
+  padding: 0;
+  border-top: none;
+  max-height: 185px;
+  overflow: hidden; }
+  #game #video #youtube_object {
+    min-height: 150px; }
+    #game #video #youtube_object object, #game #video #youtube_object embed {
+      padding: 0;
+      margin: 0;
+      margin-bottom: -3px; }
+#game #countdown, #game #gold {
+  position: relative;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #1faeba), color-stop(1, #1c8fb0)); }
+  #game #countdown .cell, #game #gold .cell {
+    border-top: none;
+    padding-left: 34px;
+    height: 22px;
+    background: url(images/game_channel/star.white.mdpi.png) 5px center no-repeat;
+    -webkit-background-size: 23px 23px; }
+    #game #countdown .cell .title, #game #gold .cell .title {
+      color: white;
+      font-weight: normal;
+      text-shadow: rgba(0, 0, 0, 0.65) 0px -1px 1px;
+      font-size: 17px;
+      font-family: PTSansBold, helvetica;
+      line-height: 18px;
+      padding-top: 4px;
+      font-weight: normal;
+      margin-top: 0; }
+    #game #countdown .cell .timer, #game #gold .cell .timer {
+      float: right;
+      margin: 0;
+      width: 72px; }
+      #game #countdown .cell .timer h4, #game #gold .cell .timer h4 {
+        color: #004a5f;
+        margin: 0;
+        text-shadow: #83d7e3 0px 1px 1px;
+        position: relative;
+        top: -4px;
+        font-family: helvetica;
+        font-weight: bold;
+        font-size: 10px; }
+      #game #countdown .cell .timer span, #game #gold .cell .timer span {
+        color: white;
+        text-shadow: #282828 0px -1px 1px rgba(100, 100, 100, 0.65);
+        line-height: 13px;
+        position: relative;
+        top: -2px;
+        float: none;
+        font-style: normal;
+        font-family: PTSansNarrowBold, helvetica;
+        font-size: 15px;
+        font-weight: normal; }
+#game section#gold, #game .section#gold {
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f1b108), color-stop(1, #dd922e));
+  text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px; }
+  #game section#gold div.cell, #game .section#gold div.cell {
+    background-image: url(images/game_channel/leaf.white.mdpi.png); }
+    #game section#gold div.cell div.title, #game .section#gold div.cell div.title {
+      padding: 0;
+      position: relative;
+      top: -3px; }
+    #game section#gold div.cell div.subtitle, #game .section#gold div.cell div.subtitle {
+      color: #775400;
+      font-style: italic;
+      font-weight: bold;
+      font-size: 11px;
+      text-shadow: rgba(255, 255, 255, 0.35) 0px 1px 0px;
+      position: relative;
+      top: -5px; }
+#game .game_info {
+  position: relative; }
+  #game .game_info .icon_image {
+    border: 1px solid #aaaaaa;
+    background: white;
+    -webkit-border-radius: 8px;
+    -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+    width: 54px;
+    height: 54px;
+    margin: 8px;
+    -webkit-background-size: 54px 54px;
+    position: absolute;
+    top: 0;
+    left: 0; }
+  #game .game_info .cell_content {
+    margin-left: 66px;
+    font-weight: bold;
+    min-height: 57px; }
+    #game .game_info .cell_content .developer {
+      font-size: 11px;
+      color: #969696;
+      font-weight: bold;
+      text-overflow: clip; }
+    #game .game_info .cell_content .title {
+      font-family: PTSansBold, helvetica;
+      font-weight: normal;
+      font-size: 16px;
+      color: #21373d;
+      margin-top: 0;
+      width: 150px;
+      text-overflow: clip;
+      white-space: normal;
+      overflow: visible; }
+  #game .game_info .buy_button {
+    -webkit-box-sizing: border-box;
+    font-family: PTSansBold, helvetica;
+    font-weight: normal;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 54px;
+    height: 25px;
+    padding: 8px 0 0 0;
+    font-size: 14px;
+    text-align: center;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #34ab40), color-stop(1, #338e3d));
+    -webkit-border-radius: 4px;
+    color: white;
+    -webkit-box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.6);
+    text-transform: uppercase; }
+    #game .game_info .buy_button.touched {
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #116611), color-stop(1, #227722)); }
+    #game .game_info .buy_button.installed, #game .game_info .buy_button.installed.touched {
+      background-image: none;
+      background-color: #dddddd;
+      color: #999999; }
+  #game .game_info .price {
+    -webkit-box-sizing: border-box;
+    color: #595959;
+    height: 16px;
+    border: 1px solid #aaaaaa;
+    padding: 0 4px;
+    margin-top: 4px;
+    -webkit-border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 14px;
+    display: inline-block;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #dfdfdf), color-stop(1, #efefef));
+    text-shadow: none; }
+    #game .game_info .price.free {
+      text-transform: uppercase;
+      color: #0d656e;
+      font-style: italic;
+      font-size: 9.5px;
+      line-height: 13px;
+      text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 1px; }
+    #game .game_info .price span {
+      font-family: PTSansBold;
+      font-style: normal;
+      font-size: 10px;
+      float: none;
+      text-shadow: none; }
+      #game .game_info .price span.strike_through {
+        text-decoration: line-through; }
+
+#screenshots {
+  position: relative; }
+  #screenshots .cell.loading {
+    margin: 15px 0 0 10px;
+    position: relative;
+    display: block;
+    height: 410px;
+    width: 256px; }
+    #screenshots .cell.loading .spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -12px 0 0 -12px; }
+  #screenshots img#size_test {
+    display: none; }
+  #screenshots .cell {
+    height: 272px; }
+  #screenshots #slides_wrapper {
+    position: relative;
+    top: 15px;
+    height: 410px;
+    margin-left: 10px; }
+    #screenshots #slides_wrapper #slides {
+      position: absolute;
+      float: left;
+      width: 3000px;
+      height: 410px;
+      -webkit-transform: translate3d(0, 0, 0);
+      -webkit-backface-visibility: hidden;
+      -webkit-perspective: 1000; }
+      #screenshots #slides_wrapper #slides .slide {
+        position: relative;
+        float: left;
+        width: 256px;
+        height: 386px;
+        margin: 0 10px;
+        -webkit-box-shadow: 0px 0px 4px #888888;
+        background: white url(images/game_channel/spinner.ios.mdpi.gif) center center no-repeat; }
+        #screenshots #slides_wrapper #slides .slide img {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 386px; }
+          #screenshots #slides_wrapper #slides .slide img.landscape_to_portrait {
+            position: absolute;
+            left: -65px;
+            top: 65px;
+            -webkit-transform: rotate(90deg);
+            width: 386px;
+            height: 256px; }
+        #screenshots #slides_wrapper #slides .slide .slide_laminate {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 256px;
+          height: 386px; }
+  #screenshots .slide_indicator {
+    position: absolute;
+    bottom: 25px;
+    margin-left: 150px; }
+    #screenshots .slide_indicator li {
+      height: 8px;
+      width: 8px;
+      background: #bababa;
+      -webkit-border-radius: 5px;
+      border: 1px solid #656565;
+      display: inline-block;
+      margin-right: 6px; }
+    #screenshots .slide_indicator li.current {
+      background: #50ad5a; }
+
+
+/*
+ *    1.5x pixel scale
+ */
+
+body.hdpi #enable_feint ul li.fgotd, body.hdpi #offline ul li.fgotd {
+  background-image: url(images/game_channel/star.hdpi.png);
+}
+body.hdpi #about_game_channel ul li.channel_challenge {
+  background-image: url(images/game_channel/vs.hdpi.png);
+}
+body.hdpi #about_game_channel ul li.fgotd {
+  background-image: url(images/game_channel/star.hdpi.png);
+}
+body.hdpi #spotlight section.step_list .cell:nth-child(4) .icon, body.hdpi #spotlight .section.step_list .cell:nth-child(4) .icon {
+  background-image: url(images/game_channel/step.3.hdpi.png);
+}
+body.hdpi #spotlight #index section#gold .overlay, body.hdpi #spotlight #index .section#gold .overlay {
+  background-image: url(images/game_channel/gold.hdpi.png);
+}
+body.hdpi #game #countdown .cell, body.hdpi #game #gold .cell {
+  background: url(images/game_channel/star.white.hdpi.png) 5px center no-repeat;
+}
+body.hdpi #spotlight #index section#fire_sale .overlay, body.hdpi #spotlight #index .section#fire_sale .overlay {
+  background-image: url(images/game_channel/fire.hdpi.png);
+}
+body.hdpi #spotlight #index section#fgotd .overlay, body.hdpi #spotlight #index .section#fgotd .overlay {
+  background-image: url(images/game_channel/star.hdpi.png);
+}
+body.hdpi #spotlight section.step_list .cell:nth-child(5) .icon, body.hdpi #spotlight .section.step_list .cell:nth-child(5) .icon {
+  background-image: url(images/game_channel/step.4.hdpi.png);
+}
+body.hdpi.ios .spinner {
+  background: white url(images/game_channel/spinner.ios.hdpi.gif) center center no-repeat;
+}
+body.hdpi #enable_feint ul li.channel_challenge, body.hdpi #offline ul li.channel_challenge {
+  background-image: url(images/game_channel/vs.hdpi.png);
+}
+body.hdpi #spotlight #games section .game_cell .cell_content, body.hdpi #spotlight #games .section .game_cell .cell_content {
+  background: url(images/game_channel/disclosure.hdpi.png) center right no-repeat;
+}
+body.hdpi #game section#gold div.cell, body.hdpi #game .section#gold div.cell {
+  background-image: url(images/game_channel/leaf.white.hdpi.png);
+}
+body.hdpi #spotlight #fire_sale section .cell.coming_soon, body.hdpi #spotlight #fire_sale .section .cell.coming_soon {
+  background-image: url(images/game_channel/fire.white.hdpi.png), -webkit-gradient(linear, left top, left bottom, color-stop(0, #fa9b33), color-stop(1, #f96923));
+}
+body.hdpi #spotlight section.step_list .cell:nth-child(2) .icon, body.hdpi #spotlight .section.step_list .cell:nth-child(2) .icon {
+  background-image: url(images/game_channel/step.1.hdpi.png);
+}
+body.hdpi #game #comments .comment_cell .cell_content {
+  background: url(images/game_channel/disclosure.hdpi.png) center right no-repeat;
+}
+body.hdpi #spotlight #channel_challenge section .cell.coming_soon, body.hdpi #spotlight #channel_challenge .section .cell.coming_soon {
+  background-image: url(images/game_channel/vs.white.hdpi.png), -webkit-gradient(linear, left top, left bottom, color-stop(0, #90ce38), color-stop(1, #79b821));
+}
+body.hdpi #spotlight #index section #about_game_channel.touched, body.hdpi #spotlight #index .section #about_game_channel.touched {
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0.4)), color-stop(1, rgba(0, 0, 0, 0.4))), url(images/game_channel/welcome.hdpi.png);
+}
+body.hdpi #spotlight #index section #about_game_channel, body.hdpi #spotlight #index .section #about_game_channel {
+  background: darkgreen url(images/game_channel/welcome.hdpi.png) center no-repeat;
+}
+body.hdpi #screenshots #slides_wrapper #slides .slide {
+  background: white url(images/game_channel/spinner.ios.hdpi.gif) center center no-repeat;
+}
+body.hdpi #game .cell.link_cell p {
+  background: url(images/game_channel/disclosure.hdpi.png) center right no-repeat;
+}
+body.hdpi #enable_feint .sad, body.hdpi #offline .sad {
+  background: url(images/game_channel/iphone.sad.hdpi.png) center center no-repeat;
+}
+body.hdpi #game #screenshots .icon {
+  background: url("images/game_channel/screenshot.hdpi.png") top left no-repeat;
+}
+body.hdpi #about_game_channel ul li.fire_sale {
+  background-image: url(images/game_channel/fire.hdpi.png);
+}
+body.hdpi .manifest_dependency_hints {
+  background-image: url(images/game_channel/logo.hdpi.png);
+}
+body.hdpi #enable_feint .tos p, body.hdpi #offline .tos p {
+  background: url(images/game_channel/disclosure.hdpi.png) center right no-repeat;
+}
+body.hdpi #enable_feint ul li.fire_sale, body.hdpi #offline ul li.fire_sale {
+  background-image: url(images/game_channel/fire.hdpi.png);
+}
+body.hdpi #enable_feint ul, body.hdpi #offline ul {
+  background: url(images/game_channel/enable.table.hdpi.png) no-repeat;
+}
+body.hdpi #spotlight section.step_list .cell:nth-child(3) .icon, body.hdpi #spotlight .section.step_list .cell:nth-child(3) .icon {
+  background-image: url(images/game_channel/step.2.hdpi.png);
+}
+body.hdpi #enable_feint, body.hdpi #offline {
+  background: #254856 url(images/game_channel/enable_bg.hdpi.png) center center;
+}
+body.hdpi #spotlight #index section#channel_challenge .overlay, body.hdpi #spotlight #index .section#channel_challenge .overlay {
+  background-image: url(images/game_channel/vs.hdpi.png);
+}
+body.hdpi #spotlight #index section .link_cell p, body.hdpi #spotlight #index .section .link_cell p {
+  background: url(images/game_channel/disclosure.hdpi.png) center right no-repeat;
+}
+
+/*
+ *    2x pixel scale
+ */
+
+body.udpi #enable_feint ul li.fgotd, body.udpi #offline ul li.fgotd {
+  background-image: url(images/game_channel/star.udpi.png);
+}
+body.udpi #about_game_channel ul li.channel_challenge {
+  background-image: url(images/game_channel/vs.udpi.png);
+}
+body.udpi #about_game_channel ul li.fgotd {
+  background-image: url(images/game_channel/star.udpi.png);
+}
+body.udpi #spotlight section.step_list .cell:nth-child(4) .icon, body.udpi #spotlight .section.step_list .cell:nth-child(4) .icon {
+  background-image: url(images/game_channel/step.3.udpi.png);
+}
+body.udpi #spotlight #index section#gold .overlay, body.udpi #spotlight #index .section#gold .overlay {
+  background-image: url(images/game_channel/gold.udpi.png);
+}
+body.udpi #game #countdown .cell, body.udpi #game #gold .cell {
+  background: url(images/game_channel/star.white.udpi.png) 5px center no-repeat;
+}
+body.udpi #spotlight #index section#fire_sale .overlay, body.udpi #spotlight #index .section#fire_sale .overlay {
+  background-image: url(images/game_channel/fire.udpi.png);
+}
+body.udpi #spotlight #index section#fgotd .overlay, body.udpi #spotlight #index .section#fgotd .overlay {
+  background-image: url(images/game_channel/star.udpi.png);
+}
+body.udpi #spotlight section.step_list .cell:nth-child(5) .icon, body.udpi #spotlight .section.step_list .cell:nth-child(5) .icon {
+  background-image: url(images/game_channel/step.4.udpi.png);
+}
+body.udpi.ios .spinner {
+  background: white url(images/game_channel/spinner.ios.udpi.gif) center center no-repeat;
+}
+body.udpi #enable_feint ul li.channel_challenge, body.udpi #offline ul li.channel_challenge {
+  background-image: url(images/game_channel/vs.udpi.png);
+}
+body.udpi #spotlight #games section .game_cell .cell_content, body.udpi #spotlight #games .section .game_cell .cell_content {
+  background: url(images/game_channel/disclosure.udpi.png) center right no-repeat;
+}
+body.udpi #game section#gold div.cell, body.udpi #game .section#gold div.cell {
+  background-image: url(images/game_channel/leaf.white.udpi.png);
+}
+body.udpi #spotlight #fire_sale section .cell.coming_soon, body.udpi #spotlight #fire_sale .section .cell.coming_soon {
+  background-image: url(images/game_channel/fire.white.udpi.png), -webkit-gradient(linear, left top, left bottom, color-stop(0, #fa9b33), color-stop(1, #f96923));
+}
+body.udpi #spotlight section.step_list .cell:nth-child(2) .icon, body.udpi #spotlight .section.step_list .cell:nth-child(2) .icon {
+  background-image: url(images/game_channel/step.1.udpi.png);
+}
+body.udpi #game #comments .comment_cell .cell_content {
+  background: url(images/game_channel/disclosure.udpi.png) center right no-repeat;
+}
+body.udpi #spotlight #channel_challenge section .cell.coming_soon, body.udpi #spotlight #channel_challenge .section .cell.coming_soon {
+  background-image: url(images/game_channel/vs.white.udpi.png), -webkit-gradient(linear, left top, left bottom, color-stop(0, #90ce38), color-stop(1, #79b821));
+}
+body.udpi #spotlight #index section #about_game_channel.touched, body.udpi #spotlight #index .section #about_game_channel.touched {
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0.4)), color-stop(1, rgba(0, 0, 0, 0.4))), url(images/game_channel/welcome.udpi.png);
+}
+body.udpi #spotlight #index section #about_game_channel, body.udpi #spotlight #index .section #about_game_channel {
+  background: darkgreen url(images/game_channel/welcome.udpi.png) center no-repeat;
+}
+body.udpi #screenshots #slides_wrapper #slides .slide {
+  background: white url(images/game_channel/spinner.ios.udpi.gif) center center no-repeat;
+}
+body.udpi #game .cell.link_cell p {
+  background: url(images/game_channel/disclosure.udpi.png) center right no-repeat;
+}
+body.udpi #enable_feint .sad, body.udpi #offline .sad {
+  background: url(images/game_channel/iphone.sad.udpi.png) center center no-repeat;
+}
+body.udpi #game #screenshots .icon {
+  background: url("images/game_channel/screenshot.udpi.png") top left no-repeat;
+}
+body.udpi #about_game_channel ul li.fire_sale {
+  background-image: url(images/game_channel/fire.udpi.png);
+}
+body.udpi .manifest_dependency_hints {
+  background-image: url(images/game_channel/logo.udpi.png);
+}
+body.udpi #enable_feint .tos p, body.udpi #offline .tos p {
+  background: url(images/game_channel/disclosure.udpi.png) center right no-repeat;
+}
+body.udpi #enable_feint ul li.fire_sale, body.udpi #offline ul li.fire_sale {
+  background-image: url(images/game_channel/fire.udpi.png);
+}
+body.udpi #enable_feint ul, body.udpi #offline ul {
+  background: url(images/game_channel/enable.table.udpi.png) no-repeat;
+}
+body.udpi #spotlight section.step_list .cell:nth-child(3) .icon, body.udpi #spotlight .section.step_list .cell:nth-child(3) .icon {
+  background-image: url(images/game_channel/step.2.udpi.png);
+}
+body.udpi #enable_feint, body.udpi #offline {
+  background: #254856 url(images/game_channel/enable_bg.udpi.png) center center;
+}
+body.udpi #spotlight #index section#channel_challenge .overlay, body.udpi #spotlight #index .section#channel_challenge .overlay {
+  background-image: url(images/game_channel/vs.udpi.png);
+}
+body.udpi #spotlight #index section .link_cell p, body.udpi #spotlight #index .section .link_cell p {
+  background: url(images/game_channel/disclosure.udpi.png) center right no-repeat;
+}

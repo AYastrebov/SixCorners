@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Leaderboards</key>
+  <dict>
+    <key>664856</key>
+    <string>001</string>
+    
+    <key>664866</key>
+    <string>002</string>
+        
+    <key>664886</key>
+    <string>003</string>
+        
+    <key>664896</key>
+    <string>004</string>
+        
+    <key>664906</key>
+    <string>005</string>
+        
+    <key>664916</key>
+    <string>006</string>
+        
+    <key>664926</key>
+    <string>007</string>
+        
+    <key>664936</key>
+    <string>008</string>
+        
+    <key>664946</key>
+    <string>009</string>
+        
+    <key>664956</key>
+    <string>010</string>
+        
+    <key>664966</key>
+    <string>011</string>
+  </dict>
+  
+  <key>Achievements</key>
+  <dict>
+    <key>855552</key>
+    <string>001</string>
+    
+    <key>855562</key>
+    <string>002</string>
+        
+    <key>855572</key>
+    <string>003</string>
+        
+    <key>855582</key>
+    <string>004</string>
+        
+    <key>855592</key>
+    <string>005</string>
+        
+    <key>855602</key>
+    <string>006</string>
+        
+    <key>855612</key>
+    <string>007</string>
+        
+    <key>855622</key>
+    <string>008</string>
+        
+    <key>855632</key>
+    <string>009</string>
+        
+    <key>855642</key>
+    <string>010</string>
+        
+    <key>855652</key>
+    <string>011</string>
+        
+    <key>855662</key>
+    <string>012</string>
+        
+    <key>855672</key>
+    <string>013</string>
+        
+    <key>855682</key>
+    <string>014</string>
+            
+    <key>855692</key>
+    <string>015</string>
+  </dict>
+</dict>
+</plist>
