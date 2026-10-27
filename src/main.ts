@@ -5,4 +5,4 @@ import './style.css';
 registerSW({ immediate: true });
 
 const app = document.querySelector<HTMLElement>('#app');
-if (app) startPlaytest(app);
+if (app) void startPlaytest(app);

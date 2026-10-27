@@ -1,47 +1,40 @@
 /**
- * Temporary Canvas 2D view for play-testing the rules engine. The real board
- * (PixiJS, redrawn art) replaces this; keep it simple rather than pretty.
+ * Temporary play-test screen: the real board and art, but no menus yet.
+ * The HTML/CSS menus and score panels replace the sidebar text drawn here.
  */
+import { SKINS, SKIN_IDS, type SkinId } from './art/skins';
 import {
   type Action,
-  COLUMNS,
   type GameEvent,
   type Hex,
   type Mode,
   ORIGINAL_RULES,
-  ROWS,
   type Rules,
   act,
-  hex,
   newGame,
-  pieceCells,
-  pieceDef,
   tick,
 } from './core';
+import {
+  type BoardLayout,
+  boardHeight,
+  boardWidth,
+  cellCentre,
+  drawBoard,
+  drawPiecePreview,
+} from './render/board';
+import { type SkinImages, type TileSet, backgroundImage, loadSkin, tilesAt } from './render/tiles';
 
-// Piece colours sampled from the 2011 glossy skin (Skin_1).
-const COLORS = [
-  '#d03c3c',
-  '#d03cc7',
-  '#3338f3',
-  '#3da5d1',
-  '#33f3f1',
-  '#53da3f',
-  '#c7d13d',
-  '#d07e3c',
-  '#9b3dd1',
-  '#87d13d',
-];
-const INK = '#14213d';
-const SQRT3 = Math.sqrt(3);
 const MAX_FRAME_MS = 250;
 const SWIPE_PX = 40;
 const FLASH_MS = 180;
+/** Sidebar width in hex radii. */
+const SIDEBAR_R = 6;
 
 interface Options {
   readonly mode: Mode;
   readonly rules: Rules;
   readonly seed: number;
+  readonly skin: SkinId;
 }
 
 function optionsFromUrl(): Options {
@@ -58,10 +51,12 @@ function optionsFromUrl(): Options {
   const rules: Rules =
     params.get('falling') === '1' ? { lineShapes: ['rising', 'falling'] } : ORIGINAL_RULES;
   const seed = Number(params.get('seed')) || Math.floor(Math.random() * 2 ** 31);
-  return { mode, rules, seed };
+  const skinParam = params.get('skin');
+  const skin = SKIN_IDS.find((id) => id === skinParam) ?? 'comic';
+  return { mode, rules, seed, skin };
 }
 
-export function startPlaytest(root: HTMLElement): void {
+export async function startPlaytest(root: HTMLElement): Promise<void> {
   const canvas = document.createElement('canvas');
   canvas.className = 'playtest';
   root.replaceChildren(canvas);
@@ -77,137 +72,111 @@ export function startPlaytest(root: HTMLElement): void {
   let flash: { cells: Hex[]; until: number } | null = null;
   let last = performance.now();
 
-  // Layout, recomputed on resize. R is the hex radius in CSS pixels.
-  let R = 16;
-  let originX = 0;
-  let originY = 0;
+  let skinId = options.skin;
+  let images: SkinImages = await loadSkin(SKINS[skinId]);
+  let tiles: TileSet = tilesAt(images, 16);
+  let background: CanvasImageSource | null = null;
+  let layout: BoardLayout = { r: 16, left: 0, top: 0 };
 
-  function resize() {
+  /** Everything is laid out in device pixels so tiles stay sharp. */
+  async function resize() {
     const dpr = window.devicePixelRatio || 1;
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    canvas.width = Math.round(width * dpr);
-    canvas.height = Math.round(height * dpr);
-    canvas.style.width = `${String(width)}px`;
-    canvas.style.height = `${String(height)}px`;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    // Board is 17R wide and 20·√3·R tall; the sidebar takes 6R more.
-    R = Math.min((width - 32) / 23, (height - 32) / (ROWS * SQRT3 + 1));
-    originX = (width - 23 * R) / 2;
-    originY = (height - ROWS * SQRT3 * R) / 2;
+    canvas.width = Math.round(window.innerWidth * dpr);
+    canvas.height = Math.round(window.innerHeight * dpr);
+    canvas.style.width = `${String(window.innerWidth)}px`;
+    canvas.style.height = `${String(window.innerHeight)}px`;
+    const margin = 16 * dpr;
+    const r = Math.min(
+      (canvas.width - 2 * margin) / (boardWidth(1) + SIDEBAR_R),
+      (canvas.height - 2 * margin) / boardHeight(1),
+    );
+    layout = {
+      r,
+      left: (canvas.width - (boardWidth(r) + SIDEBAR_R * r)) / 2,
+      top: (canvas.height - boardHeight(r)) / 2,
+    };
+    tiles = tilesAt(images, r);
+    background = await backgroundImage(images.skin, canvas.width, canvas.height);
   }
 
-  const rowH = () => SQRT3 * R;
-  const centre = (h: Hex): [number, number] => [
-    originX + R + h.x * 1.5 * R,
-    originY + ROWS * rowH() - (h.y + 1) * (rowH() / 2),
-  ];
+  async function switchSkin(next: SkinId) {
+    skinId = next;
+    images = await loadSkin(SKINS[next]);
+    const url = new URL(location.href);
+    url.searchParams.set('skin', next);
+    history.replaceState(null, '', url);
+    await resize();
+  }
 
-  function hexPath(cx: number, cy: number, radius: number) {
-    ctx.beginPath();
-    for (let i = 0; i < 6; i++) {
-      const angle = (Math.PI / 3) * i;
-      ctx.lineTo(cx + radius * Math.cos(angle), cy + radius * Math.sin(angle));
+  function text(value: string, x: number, y: number, size: number) {
+    const { font, hud } = images.skin;
+    ctx.font = `${String(Math.round(size))}px '${font.family}', system-ui, sans-serif`;
+    const shown = font.uppercase ? value.toUpperCase() : value;
+    if (hud.outline) {
+      ctx.lineJoin = 'round';
+      ctx.lineWidth = size * 0.16;
+      ctx.strokeStyle = hud.outline;
+      ctx.strokeText(shown, x, y);
     }
-    ctx.closePath();
+    ctx.fillStyle = hud.text;
+    ctx.fillText(shown, x, y);
   }
-
-  function drawHex(at: [number, number], fill: string, alpha = 1) {
-    hexPath(at[0], at[1], R * 0.92);
-    ctx.globalAlpha = alpha;
-    ctx.fillStyle = fill;
-    ctx.fill();
-    ctx.globalAlpha = 1;
-    ctx.lineWidth = Math.max(1.5, R * 0.12);
-    ctx.strokeStyle = INK;
-    ctx.stroke();
-  }
-
-  const colorOf = (id: number) => COLORS[id - 1] ?? '#ccc';
 
   function draw(now: number) {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    const bg = ctx.createLinearGradient(0, 0, 0, height);
-    bg.addColorStop(0, '#75c2ed');
-    bg.addColorStop(0.5, '#9ad7f8');
-    bg.addColorStop(1, '#76c3ed');
-    ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, width, height);
+    if (background) ctx.drawImage(background, 0, 0);
+    drawBoard(ctx, layout, tiles, state);
 
-    // Empty cells.
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = 'rgba(255,255,255,0.45)';
-    for (let x = 0; x < COLUMNS; x++) {
-      for (let row = 0; row < (x % 2 === 0 ? ROWS : ROWS - 1); row++) {
-        const [cx, cy] = centre(hex(x, 2 * row + (x & 1)));
-        hexPath(cx, cy, R * 0.92);
-        ctx.stroke();
-      }
-    }
-
-    for (const cell of state.board.filled()) drawHex(centre(cell.hex), colorOf(cell.id), 0.85);
     if (flash && now < flash.until) {
-      for (const h of flash.cells) drawHex(centre(h), '#ffffff');
+      ctx.globalAlpha = (flash.until - now) / FLASH_MS;
+      for (const h of flash.cells) {
+        const [cx, cy] = cellCentre(layout, h);
+        ctx.beginPath();
+        ctx.arc(cx, cy, layout.r * 0.8, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
     }
-    if (state.piece) {
-      for (const h of pieceCells(state.piece)) drawHex(centre(h), colorOf(state.piece.id));
-    }
+
     drawSidebar();
     if (paused || state.status !== 'playing') drawBanner();
   }
 
   function drawSidebar() {
-    const left = originX + 18 * R;
-    let y = originY + R;
-    const label = (text: string, value: string) => {
-      ctx.fillStyle = INK;
-      ctx.font = `600 ${String(Math.round(R * 0.8))}px system-ui, sans-serif`;
-      ctx.fillText(text, left, y);
-      y += R * 1.4;
-      ctx.font = `800 ${String(Math.round(R * 1.3))}px system-ui, sans-serif`;
-      ctx.fillText(value, left, y);
-      y += R * 1.6;
+    const { r } = layout;
+    const x = layout.left + boardWidth(r) + r;
+    let y = layout.top + 1.2 * r;
+    const stat = (label: string, value: string) => {
+      text(`${label}:`, x, y, r * 1.1);
+      y += r * 1.6;
+      text(value, x + 0.2 * r, y, r * 1.3);
+      y += r * 2;
     };
-    label('SCORE', String(state.score));
-    label('LINES', String(state.lines));
-    label(
-      mode.kind === 'levels' ? 'LEVEL' : 'SPEED',
+    stat('score', String(state.score));
+    stat('lines', String(state.lines));
+    stat(
+      mode.kind === 'levels' ? 'level' : 'speed',
       String(mode.kind === 'levels' ? mode.level : mode.speed),
     );
-
-    ctx.fillStyle = INK;
-    ctx.font = `600 ${String(Math.round(R * 0.8))}px system-ui, sans-serif`;
-    ctx.fillText('NEXT', left, y);
-    const next = pieceDef(state.next);
-    const scale = 0.6;
-    for (const offset of next.cells) {
-      const cx = left + 2 * R + offset.x * 1.5 * R * scale;
-      const cy = y + 4 * R - offset.y * (rowH() / 2) * scale;
-      hexPath(cx, cy, R * 0.92 * scale);
-      ctx.fillStyle = colorOf(next.id);
-      ctx.fill();
-      ctx.lineWidth = Math.max(1, R * 0.08);
-      ctx.strokeStyle = INK;
-      ctx.stroke();
-    }
+    drawPiecePreview(ctx, tiles, state.next, x + 2.2 * r, y + 2.5 * r, r * 0.75);
+    text(images.skin.name, x, layout.top + boardHeight(r) - 0.5 * r, r * 0.8);
   }
 
   function drawBanner() {
-    const text = paused
+    const message = paused
       ? 'Paused'
       : state.status === 'won'
         ? 'Level complete! Tap for next'
         : 'Game over. Tap to retry';
-    const cx = originX + 8.5 * R;
-    const cy = originY + (ROWS * rowH()) / 2;
-    ctx.fillStyle = 'rgba(20,33,61,0.8)';
-    ctx.fillRect(originX, cy - 1.6 * R, 17 * R, 3.2 * R);
-    ctx.fillStyle = '#fff';
-    ctx.font = `800 ${String(Math.round(R * 0.9))}px system-ui, sans-serif`;
+    const { r } = layout;
+    const cy = layout.top + boardHeight(r) / 2;
+    ctx.fillStyle = 'rgba(20,20,20,0.75)';
+    ctx.fillRect(layout.left, cy - 1.8 * r, boardWidth(r), 3.6 * r);
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText(text, cx, cy);
+    ctx.font = `${String(Math.round(r * 1.1))}px '${images.skin.font.family}', system-ui, sans-serif`;
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(message, layout.left + boardWidth(r) / 2, cy);
     ctx.textAlign = 'start';
     ctx.textBaseline = 'alphabetic';
   }
@@ -245,8 +214,12 @@ export function startPlaytest(root: HTMLElement): void {
     requestAnimationFrame(frame);
   }
 
-  // Keyboard.
   window.addEventListener('keydown', (e) => {
+    if (e.key === 'k') {
+      const next = SKIN_IDS[(SKIN_IDS.indexOf(skinId) + 1) % SKIN_IDS.length] ?? 'comic';
+      void switchSkin(next);
+      return;
+    }
     if (state.status !== 'playing') {
       if (e.key === 'Enter' || e.key === ' ') restartOrContinue();
       return;
@@ -287,13 +260,14 @@ export function startPlaytest(root: HTMLElement): void {
 
   // Touch and mouse: drag sideways one column at a time, swipe down to drop, tap to rotate.
   let drag: { x: number; y: number; moved: boolean } | null = null;
+  const columnPx = () => (1.5 * layout.r) / (window.devicePixelRatio || 1);
   canvas.addEventListener('pointerdown', (e) => {
     canvas.setPointerCapture(e.pointerId);
     drag = { x: e.clientX, y: e.clientY, moved: false };
   });
   canvas.addEventListener('pointermove', (e) => {
     if (!drag) return;
-    const step = 1.5 * R;
+    const step = columnPx();
     while (e.clientX - drag.x >= step) {
       send({ type: 'right' });
       drag = { ...drag, x: drag.x + step, moved: true };
@@ -321,8 +295,8 @@ export function startPlaytest(root: HTMLElement): void {
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) paused = true;
   });
-  window.addEventListener('resize', resize);
+  window.addEventListener('resize', () => void resize());
 
-  resize();
+  await resize();
   requestAnimationFrame(frame);
 }

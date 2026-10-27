@@ -5,6 +5,9 @@ export default defineConfig({
   plugins: [
     VitePWA({
       registerType: 'autoUpdate',
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
+      },
       includeAssets: ['favicon.png', 'icons/apple-touch-icon.png'],
       manifest: {
         name: '6 Corners',
