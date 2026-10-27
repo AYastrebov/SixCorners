@@ -1,34 +1,12 @@
 /** Dev-only page (art.html): the 2011 sprites next to the SVG redraw. */
 import { SKINS, SKIN_IDS, type Skin } from './art/skins';
-import { Board, type GameState, fromRow, hex, newGame, PIECES, type PieceId } from './core';
-import { nextRandom } from './core/rng';
+import { PIECES, type PieceId } from './core';
+import { sampleState } from './render/preview';
 import { boardHeight, boardWidth, drawBoard, drawPiecePreview } from './render/board';
 import { backgroundImage, loadFont, loadSkin, svgImage, tilesAt } from './render/tiles';
 
 const LEGACY = '/legacy-art/Resources';
 const SKIN_INDEX: Record<string, number> = { comic: 0, digital: 1, notebook: 2 };
-
-/** A mid-game board similar to the 2011 skin previews. */
-function sampleState(): GameState {
-  let rng = 4;
-  const cells = [];
-  for (let x = 0; x < 11; x++) {
-    const height = 3 + ((x * 5) % 4);
-    for (let row = 0; row < height; row++) {
-      const [value, next] = nextRandom(rng);
-      rng = next;
-      if (row < 2 || value < 0.7) cells.push(fromRow(x, row));
-    }
-  }
-  const base = newGame({ mode: { kind: 'levels', level: 1 }, seed: 3 }).state;
-  return {
-    ...base,
-    board: Board.fromCells(cells),
-    piece: { id: 7, pivot: hex(3, 28), offsets: PIECES[6]?.cells ?? [] },
-    next: 2,
-    score: 175,
-  };
-}
 
 async function screen(skin: Skin): Promise<HTMLCanvasElement> {
   const dpr = window.devicePixelRatio || 1;

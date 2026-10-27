@@ -63,8 +63,19 @@ export interface SkinImages {
   readonly pieces: readonly HTMLImageElement[];
 }
 
+const decoded = new Map<string, Promise<SkinImages>>();
+
 /** Decodes a skin's SVGs once; `tilesAt` then rasterises them for any size. */
-export async function loadSkin(skin: Skin): Promise<SkinImages> {
+export function loadSkin(skin: Skin): Promise<SkinImages> {
+  let promise = decoded.get(skin.id);
+  if (!promise) {
+    promise = decodeSkin(skin);
+    decoded.set(skin.id, promise);
+  }
+  return promise;
+}
+
+async function decodeSkin(skin: Skin): Promise<SkinImages> {
   const fontFace = await loadFont(skin.font);
   const [empty, locked, ...pieces] = await Promise.all([
     svgImage(skin.emptyCell()),
