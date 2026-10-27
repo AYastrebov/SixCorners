@@ -6,12 +6,18 @@ export interface Settings {
   readonly skin: SkinId;
   /** Last speed picked for endless mode, 1–10. */
   readonly speed: number;
+  /** Music and sound-effect volume, 0–1. */
+  readonly music: number;
+  readonly sfx: number;
   /** Best score per mode, keyed by `modeKey`. */
   readonly best: Readonly<Record<string, number>>;
 }
 
 const KEY = 'sixcorners.settings.v1';
-const DEFAULTS: Settings = { skin: 'comic', speed: 1, best: {} };
+const DEFAULTS: Settings = { skin: 'comic', speed: 1, music: 0.6, sfx: 0.8, best: {} };
+
+const volume = (value: unknown, fallback: number) =>
+  typeof value === 'number' && value >= 0 && value <= 1 ? value : fallback;
 
 export const modeKey = (mode: Mode): string =>
   mode.kind === 'levels' ? `level-${String(mode.level)}` : `endless-${String(mode.speed)}`;
@@ -27,6 +33,8 @@ export function loadSettings(): Settings {
         Number.isInteger(parsed.speed) && (parsed.speed ?? 0) >= 1 && (parsed.speed ?? 0) <= 10
           ? (parsed.speed ?? 1)
           : DEFAULTS.speed,
+      music: volume(parsed.music, DEFAULTS.music),
+      sfx: volume(parsed.sfx, DEFAULTS.sfx),
       best: typeof parsed.best === 'object' ? parsed.best : {},
     };
   } catch {

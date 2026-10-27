@@ -7,6 +7,14 @@ export default defineConfig({
       registerType: 'autoUpdate',
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
+        // Music is too big to precache; keep each track once it has been played.
+        runtimeCaching: [
+          {
+            urlPattern: /\/music\/.+\.mp3$/,
+            handler: 'CacheFirst',
+            options: { cacheName: 'music', expiration: { maxEntries: 8 } },
+          },
+        ],
       },
       includeAssets: ['favicon.png', 'icons/apple-touch-icon.png'],
       manifest: {

@@ -1,4 +1,6 @@
 import { SKINS } from '../art/skins';
+import { music } from '../audio/music';
+import { sfx } from '../audio/sfx';
 import {
   type Action,
   type GameEvent,
@@ -140,9 +142,14 @@ export async function gameScreen(nav: Nav, startMode: Mode): Promise<Screen> {
 
   function handle(events: readonly GameEvent[], now: number) {
     for (const event of events) {
-      if (event.type === 'lines') {
+      if (event.type === 'lock') {
+        sfx.lock();
+      } else if (event.type === 'lines') {
+        sfx.lines(event.cleared.length);
         flash = { cells: event.cleared.flatMap((line) => line.cells), until: now + FLASH_MS };
       } else if (event.type === 'won' || event.type === 'lost') {
+        sfx[event.type]();
+        music.hold();
         finish(event.type === 'won');
       }
     }
@@ -150,7 +157,14 @@ export async function gameScreen(nav: Nav, startMode: Mode): Promise<Screen> {
 
   function send(action: Action) {
     if (paused || overlay) return;
+    const before = state;
     state = act(state, action).state;
+    if (action.type === 'softDrop') {
+      if (state.softDrop && !before.softDrop) sfx.softDrop();
+    } else if (state.piece !== before.piece) {
+      if (action.type === 'rotate') sfx.rotate();
+      else sfx.move();
+    }
   }
 
   function restart(nextMode: Mode) {
@@ -159,6 +173,7 @@ export async function gameScreen(nav: Nav, startMode: Mode): Promise<Screen> {
     closeOverlay();
     paused = false;
     shownNext = -1;
+    music.resume();
   }
 
   function closeOverlay() {
@@ -178,7 +193,9 @@ export async function gameScreen(nav: Nav, startMode: Mode): Promise<Screen> {
   function setPaused(value: boolean) {
     if (state.status !== 'playing') return;
     paused = value;
+    if (value) music.hold();
     if (!value) {
+      music.resume();
       closeOverlay();
       last = performance.now();
       return;

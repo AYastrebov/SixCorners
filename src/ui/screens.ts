@@ -1,4 +1,6 @@
 import { SKINS, SKIN_IDS, type SkinId } from '../art/skins';
+import { sfx } from '../audio/sfx';
+import { ALL_TRACKS } from '../audio/tracks';
 import { MAX_SPEED, type Mode } from '../core';
 import { drawSkinPreview } from '../render/preview';
 import { button, h } from './dom';
@@ -11,6 +13,7 @@ export interface Nav {
   readonly mainMenu: () => void;
   readonly levels: () => void;
   readonly skins: () => void;
+  readonly options: () => void;
   readonly about: () => void;
   readonly play: (mode: Mode) => void;
 }
@@ -48,6 +51,7 @@ export function mainMenu(nav: Nav): Screen {
       play,
       button('Levels', nav.levels),
       button('Skins', nav.skins),
+      button('Options', nav.options),
       button('About', nav.about, { class: 'btn small' }),
     ),
   );
@@ -177,6 +181,54 @@ export function skinsMenu(nav: Nav): Screen {
   return { el, focus: select };
 }
 
+function volumeSlider(
+  label: string,
+  value: number,
+  onChange: (value: number) => void,
+): HTMLElement {
+  const output = h('output', {}, `${String(Math.round(value * 100))}%`);
+  const slider = h('input', {
+    type: 'range',
+    min: 0,
+    max: 100,
+    step: 5,
+    value: Math.round(value * 100),
+    'aria-label': label,
+  });
+  slider.addEventListener('input', () => {
+    output.textContent = `${slider.value}%`;
+    onChange(Number(slider.value) / 100);
+  });
+  return h(
+    'label',
+    { class: 'setting' },
+    h('span', { class: 'stat' }, h('span', {}, label), output),
+    slider,
+  );
+}
+
+export function optionsScreen(nav: Nav): Screen {
+  const back = button('Go back', nav.mainMenu);
+  const { music, sfx: effects } = nav.settings();
+  const el = screen(
+    'options',
+    h(
+      'div',
+      { class: 'panel' },
+      h('h2', { class: 'panel-title' }, 'Options'),
+      volumeSlider('Music', music, (value) => {
+        nav.update({ music: value });
+      }),
+      volumeSlider('Effects', effects, (value) => {
+        nav.update({ sfx: value });
+        sfx.rotate();
+      }),
+    ),
+    h('nav', { class: 'menu' }, button('Skins', nav.skins), back),
+  );
+  return { el, focus: back };
+}
+
 export function aboutScreen(nav: Nav): Screen {
   const back = button('Go back', nav.mainMenu);
   const el = screen(
@@ -187,6 +239,20 @@ export function aboutScreen(nav: Nav): Screen {
       h('h2', { class: 'panel-title' }, 'About'),
       h('p', {}, 'Game developed by Andrey Yastrebov and Konstantin Zubanov, 2011.'),
       h('p', {}, 'Rebuilt for the web in 2026.'),
+      h('h3', { class: 'credits-title' }, 'Music'),
+      h(
+        'ul',
+        { class: 'credits' },
+        ...ALL_TRACKS.map((t) =>
+          h(
+            'li',
+            {},
+            h('a', { href: t.source, target: '_blank', rel: 'noopener' }, `“${t.title}”`),
+            ` by ${t.artist}, ${t.release}. `,
+            h('a', { href: t.licenseUrl, target: '_blank', rel: 'noopener' }, t.license),
+          ),
+        ),
+      ),
       h('p', { class: 'fine' }, 'Fonts: Righteous, Tektur, Shadows Into Light Two (SIL OFL).'),
     ),
     h('nav', { class: 'menu' }, back),

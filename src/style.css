@@ -177,6 +177,45 @@ input[type='range'] {
   text-align: center;
 }
 
+.setting {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.setting .stat {
+  font-size: inherit;
+}
+
+.screen-about .panel {
+  width: min(92vw, 420px);
+}
+
+.credits-title {
+  margin: 6px 0 0;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.credits {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+  text-transform: none;
+}
+
+.credits li {
+  margin-bottom: 6px;
+}
+
+.credits a {
+  color: inherit;
+}
+
 .about .fine {
   font-size: 15px;
   opacity: 0.8;
@@ -292,6 +331,11 @@ input[type='range'] {
   background: #e4dbb8;
   border: 2px solid #1a1a1a;
   color: #e9e9e9;
+}
+
+[data-skin='comic'] :is(.credits, .fine) {
+  color: #2a2414;
+  -webkit-text-stroke: 0;
 }
 
 [data-skin='comic'] .panel-title {
